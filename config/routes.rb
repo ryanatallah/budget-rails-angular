@@ -1,4 +1,17 @@
 BudgetRailsAngular::Application.routes.draw do
+  root 'application#render'
+
+  get 'signin' => 'sessions#new'
+  resources :sessions, except: [:new, :index, :show]
+
+  scope 'api/v1/' do
+    resources :budgets
+    resources :purchases
+    resources :users
+
+    get 'object' => 'budgets#objects', as: :render_objects
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
