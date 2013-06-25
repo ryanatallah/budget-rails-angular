@@ -9,7 +9,7 @@ BudgetRailsAngular::Application.routes.draw do
     resources :purchases
     resources :users
 
-    get 'object' => 'budgets#objects', as: :render_objects
+    get 'object' => 'budgets#render_has', as: :render_hash
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
